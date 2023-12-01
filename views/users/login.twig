@@ -1,0 +1,52 @@
+{ extends "layouts/app.twig" }
+
+{ block body }
+
+<div class="d-flex flex-column align-items-center">
+
+    <!-- Afbeelding -->
+    <h2 class="my-4 h1">Binsta</h2>
+
+    <h3 class="my-4">Login</h3>
+
+    <!-- Login form -->
+    <form action="/user/loginPost" method="POST" class="w-25">
+
+        <!-- Username -->
+        <div class="mb-4">
+            <label hidden class="form-label" for="username">Username</label>
+            <input class="form-control" type="text" name="username" id="username" placeholder="Username">
+        </div>
+
+        <!-- Password -->
+        <div class="mb-4">
+            <label hidden class="form-label" for="password">Password</label>
+            <input class="form-control" type="password" name="password" id="password" placeholder="Password">
+        </div>
+
+        <!-- Button to submit -->
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary" name="submit">Login</button>
+        </div>
+    </form>
+
+    <!-- Create new account link -->
+    <div class="mt-2 mb-3">
+        <a href="/user/register" class="btn btn-link text-decoration-none">Create a new account</a>
+    </div>
+
+    <!-- Incorrect login alert -->
+    { if id == 1 }
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            Username and/or password incorrect
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    { elseif id == 2 }
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            You must be logged in to perform that action
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    { endif }
+</div>
+
+{ endblock }

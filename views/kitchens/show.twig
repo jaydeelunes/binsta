@@ -1,0 +1,44 @@
+{ extends "layouts/app.twig" }
+
+{ block body }
+
+<!-- Edit and back buttons -->
+<div class="d-flex flex-row-reverse my-3">
+    <a href="/kitchen/edit?id={{ kitchen.kitchen_id }}" class="btn btn-primary">Edit</a>
+    <a href="/kitchen" class="btn btn-link text-decoration-none">Index</a>
+</div>
+
+<!-- Card with kitchen info -->
+<div class="card shadow-lg mb-3">
+    <div class="card-header fs-4">
+        {{ kitchen.name }}
+    </div>
+    <div class="card-body">
+        {{ kitchen.description }}
+    </div>
+</div>
+
+<!-- Show more recipes-->
+<div class="my-3">
+    <h3>Recipes</h3>
+</div>
+<div class="row g-5 mb-3">
+    { for recipe in recipes }
+        <div class="col-4">
+            <div class="card shadow mx-auto p-3 h-100">
+                <div class="d-flex justify-content-between">
+                    <div class="fs-5 fw-medium">{{ recipe.name }}</div>
+                    <div>{{ recipe.level | difficulty | raw }}</div>
+                </div>
+                <div>
+                    <span class="text-secondary">{{ recipe.type | capitalize }}</span>
+                </div>
+                <div class="d-flex flex-row-reverse">
+                    <a href="/recipe/show?id={{ recipe.recipe_id }}" class="btn btn-link text-decoration-none">Show</a>
+                </div>
+            </div>
+        </div>
+    { endfor }
+</div>
+
+{ endblock }

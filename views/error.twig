@@ -1,0 +1,9 @@
+{ extends "layouts/app.twig" }
+
+{ block body}
+    <div class="container">
+        <div class="alert alert-danger my-3" role="alert">
+            Error {{ error.number }}: {{ error.message }}. Go back to <a href="/" class="link-danger">homepage</a>
+        </div>
+    </div>
+{ endblock }

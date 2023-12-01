@@ -1,0 +1,51 @@
+{ extends "layouts/app.twig" }
+
+{ block body }
+
+    <!-- Profile header -->
+    <div class="d-flex shadow-sm justify-content-center">
+        
+        <!-- Profile card -->
+        <div class="w-50 d-flex py-4 flex-wrap">
+            <img src="{{ user. image }}" alt="{{ post.username}} profile image" style="border-radius: 50%; height: 8rem">
+            <div class="my-auto p-3">
+                <div class="">
+                    <span class="fw-bold">{{ user.name }}</span>
+                </div>
+                <div class="">
+                    {{ user.bio }}
+                </div>
+            </div>
+        </div> 
+
+        <!-- Action buttons -->
+        { if active_user.id == user.id }
+            <div class="d-flex flex-column justify-content-evenly align-items-center">
+                
+                <a href="/user/update">
+                    <button class="btn btn-secondary">Edit profile</button>
+                </a>
+
+                <a href="/user/logout">
+                    <button class="btn btn-danger">Logout</button>
+                </a>
+
+            </div>
+        { endif }
+
+    </div>
+
+    <!-- Body of the page -->
+    <div class="container">
+        <div class="d-flex flex-column align-items-center">
+        
+            <!-- Loops through all the loaded posts and renders them as a card -->
+            { for post in posts }
+    
+                { include "/elements/post.twig" }
+    
+            { endfor }
+        </div>
+    </div>
+
+{ endblock }

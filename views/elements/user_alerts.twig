@@ -1,0 +1,22 @@
+    <!-- Alerts -->
+    { if id == 1 }
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            Username is already in use
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    { elseif id == 2 }
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            Username can not contain spaces
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    { elseif id == 3 }
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            Passwords did not match
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    { elseif id == 4 }
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            Image failed to upload
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    { endif }

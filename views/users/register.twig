@@ -1,0 +1,48 @@
+{ extends "layouts/app.twig" }
+
+{ block body }
+
+<div class="d-flex flex-column align-items-center">
+
+    <!-- Page title -->
+    <h3 class="my-4">Register</h3>
+
+    <!-- Registration form -->
+    <form action="/user/registerPost" method="POST" class="w-50">
+
+        <!-- Username -->
+        <div class="mb-4">
+            <label hidden class="form-label" for="username">Username</label>
+            <input required type="text" class="form-control" name="username" id="username" placeholder="Username">
+        </div>
+
+        <!-- Full name -->
+        <div class="mb-4">
+            <label hidden class="form-label" for="name">Full name</label>
+            <input required type="text" class="form-control" name="name" id="name" placeholder="Full name">
+        </div>
+
+        <!-- Password twice -->
+        <div class="mb-4">
+            <label hidden class="form-label" for="password">Password</label>
+            <input required type="password" class="form-control" name="password" id="password" placeholder="Password">
+        </div>
+
+        <div class="mb-4">
+            <label hidden class="form-label" for="passwordconfirm">Password confirmation</label>
+            <input required type="password" class="form-control" name="passwordconfirm" id="passwordconfirm" placeholder="Password confirmation">
+        </div>
+
+        <!-- Register button -->
+        <div class="mb-4 d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary" name="submit">Register</button>
+        </div>
+
+    </form>
+
+    <!-- Alerts -->
+    { include "/elements/user_alerts.twig" }
+
+</div>
+
+{ endblock }

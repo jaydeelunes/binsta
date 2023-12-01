@@ -1,0 +1,31 @@
+{ extends "layouts/app.twig" }
+
+{ block body }
+
+{ if recipes|length > 0 }
+    <table class="table shadow-lg rounded my-3">
+        <thead>
+            <tr>
+                <th class="p-3" scope="col">Recept</th>
+                <th class="p-3" scope="col">Type</th>
+                <th class="p-3" scope="col">Level</th>
+            </tr>
+        </thead>
+        <tbody>
+            { for recipe in recipes }
+                <tr>
+                    <td class="p-3"><a href="/recipe/show?id={{ recipe.id }}" class="text-decoration-none link-body-emphasis">{{ recipe.name }}</a></td>
+                    <td class="p-3">{{ recipe.type | capitalize }}</td>
+                    <td class="p-3">{{ recipe.level | difficulty | raw }}</td>
+                </tr>
+            { endfor }
+        </tbody>
+    </table>
+    <div class="d-flex flex-row-reverse">
+        <a href="/recipe/create"><button type="button" class="btn btn-primary">Create</button></a>
+    </div>
+{ else }
+<p>No recipes found</p>
+{ endif }
+
+{ endblock }

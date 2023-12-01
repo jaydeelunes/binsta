@@ -1,0 +1,67 @@
+{ extends "layouts/app.twig" }
+
+{ block body}
+
+<div class="card shadow-lg my-3 mx-5">
+    <div class="card-body">
+        <form action="" method="POST">
+
+            <!-- Recipe name -->
+            <div class="mb-4">
+                <label for="name" class="form-label">Name</label>
+                <input required class="form-control mb-4" type="text" name="name" id="name" value="{{ recipe.name }}">
+            </div>
+
+            <!-- Recipe kitchen select menu -->
+            <div class="mb-4">
+                <label for="kitchen" class="form-label">Kitchen</label>
+                <select name="kitchen" id="kitchen" class="form-select">
+                    { for kitchen in kitchens }
+                        { if kitchen.id == recipe.kitchens_id }
+                            <option selected value="{{ kitchen.id }}">{{ kitchen.name }}</option>
+                        { else }
+                            <option value="{{ kitchen.id }}">{{ kitchen.name }}</option>
+                        { endif }
+                    { endfor }
+                </select>
+            </div>
+
+            <!-- Recipe type select menu -->
+            <div class="mb-4">
+                <label for="type" class="form-label">Type</label>
+                <select required class="form-select" name="type" id="type">
+                    { for type in types }
+                        { if type == recipe.type }
+                            <option selected value="{{ type }}">{{ type|capitalize }}</option>
+                        { else }
+                            <option value="{{ type }}">{{ type|capitalize }}</option>
+                        { endif }
+                    { endfor }
+                </select>
+            </div>
+            
+            <!-- Recipe level select menu -->
+            <div class="mb-4">
+                <label for="level" class="form-label">Level</label>
+                <select required class="form-select" name="level" id="level">
+                    { for level in levels }
+                        { if level == recipe.level }
+                            <option selected value="{{ level }}">{{ level|capitalize }}</option>
+                        { else }
+                            <option value="{{ level }}">{{ level|capitalize }}</option>
+                        { endif }
+                    { endfor }
+                </select>
+            </div>
+
+            <!-- Save and back buttons -->
+            <div class="d-flex flex-row-reverse">
+                <button type="submit" class="btn btn-primary" name="submit">Save</button>
+                <a href="/recipe/show?id={{ recipe.recipe_id }}"><button type="button" class="btn btn-link text-decoration-none mx-3">Back</button></a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+{ endblock }

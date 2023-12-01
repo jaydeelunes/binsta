@@ -1,0 +1,27 @@
+{ extends "layouts/app.twig" }
+
+{ block body}
+
+<div class="card shadow-lg my-3 mx-5">
+    <div class="card-body">
+        <form action="" method="POST">
+            <div class="mb-4">
+                <label for="name" class="form-label">Name</label>
+                <input required class="form-control mb-4" type="text" name="name" id="name">
+            </div>
+
+            <div class="mb-4">
+                <label for="description" class="form-label">Description</label>
+                <textarea name="description" id="description" cols="30" rows="4" class="form-control"></textarea>
+            </div>
+
+            <div class="d-flex flex-row-reverse">
+                <button type="submit" class="btn btn-primary" name="submit">Create</button>
+                <a href="/kitchen"><button type="button" class="btn btn-link text-decoration-none mx-3">Back</button></a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+{ endblock }

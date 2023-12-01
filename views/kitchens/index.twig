@@ -1,0 +1,27 @@
+{ extends "layouts/app.twig" }
+
+{ block body }
+
+{ if kitchens|length > 0 }
+    <table class="table shadow-lg rounded my-3">
+        <thead>
+            <tr>
+                <th class="p-3" scope="col">Keukens</th>
+            </tr>
+        </thead>
+        <tbody>
+            { for kitchen in kitchens }
+                <tr>
+                    <td class="p-3"><a href="/kitchen/show?id={{ kitchen.id }}" class="text-decoration-none link-body-emphasis">{{ kitchen.name }}</a></td>
+                </tr>
+            { endfor }
+        </tbody>
+    </table>
+    <div class="d-flex flex-row-reverse">
+        <a href="/kitchen/create"><button type="button" class="btn btn-primary">Create</button></a>
+    </div>
+{ else }
+<p>No recipes found</p>
+{ endif }
+
+{ endblock }

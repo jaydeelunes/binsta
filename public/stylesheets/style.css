@@ -1,0 +1,53 @@
+html {
+    scroll-behavior: auto !important;
+  }
+
+.comment-input {
+    border: none;
+}
+
+.comment-input:focus {
+    outline: 0;
+}
+
+.comment-input,
+.comment-submit {
+    background-color: rgba(0,0,0,0);
+}
+
+.profile-header-image {
+    border-radius: 50%;
+    height: 2.5rem;
+}
+
+.profile-search-image {
+    border-radius: 50%;
+    height: 6rem;
+}
+
+.dropdown-menu {
+    background-color: #f8f9f9;
+}
+
+.input-code-snippet,
+.input-code-snippet:focus {
+    color: #808a8d;
+    background-color: #1b191a;
+    font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+    border-radius: 0;
+    outline: 0;
+    resize: none;
+}
+
+.card {
+    scroll-margin-top: 86px;
+    overflow: initial !important;   
+}
+
+.comment-icon {
+    height: 14px;
+}
+
+.comment-icon::before {
+    vertical-align: 0;
+}

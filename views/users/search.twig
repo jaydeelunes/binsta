@@ -1,0 +1,27 @@
+{ extends "layouts/app.twig" }
+
+{ block body }
+
+    <div class="container">
+        <div class="d-flex flex-column align-items-center">
+            { if count > 0 }
+                {for match in matches }
+                <a href="/user/profile?id={{ match.id }}" class="card col-4 text-decoration-none my-3">
+                    <div class="card-body p-2 d-flex align-items-center">
+                        <img src="{{ match.image }}" alt="{{ match.username }} profile picture" class="me-2 profile-search-image">
+                        <div class="d-flex flex-column">
+                            <span class="fw-bold fs-5">{{ match.name }}</span>
+                            <span class="fs-5">@{{ match.username }}</span>
+                        </div>
+                    </div>
+                </a>
+                { endfor }
+            { else }
+                <div class="alert alert-warning" role="alert">
+                    No user found that matches: {{ search}}
+                </div>
+            { endif }
+        </div>
+    </div>
+
+{ endblock }
